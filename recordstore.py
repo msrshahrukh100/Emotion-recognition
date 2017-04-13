@@ -24,9 +24,10 @@ class Recorder :
 		sd.default.samplerate = self.fs
 		sd.default.latency = 'high'
 		sd.default.channels = 1
+		print "Recording ....."
 		self.sound = sd.rec(int(self.duration * self.fs),  blocking=True)
-		# myrecording = sd.playrec(self.sound, self.fs, channels=2)
-		# print (self.sound)
+		print "Recording Finished !"
+		
 		np.save('input.npy',self.sound)
 		write('test.wav', self.fs, self.sound)
 		print self.sound
@@ -56,10 +57,11 @@ class Recorder :
 
 	def detect_emotion(self) :
 		# audioAnalysisRecordAlsa.recordAnalyzeAudio(3, "record.wav", 3, "svmforemotions", "svm")
-		Result, P, classNames = aT.fileClassification("neutral.wav", "svmforemotions", "svm")
+		Result, P, classNames = aT.fileClassification("test.wav", "svmforemotions", "svm")
 		print Result
 		print P
 		print classNames
+		print "The emotion is : " + classNames[int(Result)]
 
 
 
