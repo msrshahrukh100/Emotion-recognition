@@ -3,7 +3,7 @@ import numpy as np
 import time
 from python_speech_features import mfcc
 from pyAudioAnalysis import audioBasicIO
-from pyAudioAnalysis import audioFeatureExtraction, audioAnalysisRecordAlsa
+from pyAudioAnalysis import audioFeatureExtraction
 import matplotlib.pyplot as plt
 from scipy.io.wavfile import write
 import os
@@ -54,8 +54,12 @@ class Recorder :
 
 		aT.featureAndTrain(listOfDirs, 1.0, 1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "svmforemotions")
 
-	def detect_emotion() :
-		audioAnalysisRecordAlsa.recordAnalyzeAudio(3, "record.wav", 3, "svmforemotions", "svm")
+	def detect_emotion(self) :
+		# audioAnalysisRecordAlsa.recordAnalyzeAudio(3, "record.wav", 3, "svmforemotions", "svm")
+		Result, P, classNames = aT.fileClassification("neutral.wav", "svmforemotions", "svm")
+		print Result
+		print P
+		print classNames
 
 
 
