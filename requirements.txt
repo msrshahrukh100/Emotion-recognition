@@ -2,6 +2,7 @@ appdirs==1.4.0
 cffi==1.9.1
 cycler==0.10.0
 eyeD3==0.7.11
+functools32==3.2.3.post2
 hmmlearn==0.2.0
 matplotlib==2.0.0
 numpy==1.12.0
@@ -18,3 +19,4 @@ simplejson==3.10.0
 six==1.10.0
 sklearn==0.0
 sounddevice==0.3.6
+subprocess32==3.2.7

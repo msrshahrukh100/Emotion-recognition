@@ -18,7 +18,7 @@ class Recorder :
 		self.duration = duration
 		self.sound = []
 		self.mfccofinput = []
-		self.fs = 16000
+		self.fs = 24414
 
 	def record(self) :
 		sd.default.samplerate = self.fs
@@ -50,7 +50,6 @@ class Recorder :
 			if os.path.isdir(os.path.join(dir_path,directory,i)) :
 				print os.path.join(dir_path,directory,i)
 				listOfDirs.append(os.path.join(dir_path,directory,i))
-
 		print listOfDirs
 
 		aT.featureAndTrain(listOfDirs, 1.0, 1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "svmforemotions")
